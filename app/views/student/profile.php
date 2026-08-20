@@ -13,9 +13,7 @@
 </head>
 <body class="bg-[#F8F9FB] flex h-screen overflow-hidden text-gray-800">
 
-    <!-- Sidebar (Same as Index) -->
     <aside class="w-64 bg-white border-r border-gray-200 flex flex-col h-full flex-shrink-0">
-        <!-- Logo Area -->
         <div class="h-20 flex items-center px-6 border-b border-gray-100">
             <div class="bg-gray-900 text-white rounded-md p-2 mr-3 flex items-center justify-center">
                 <i class="fa-solid fa-graduation-cap text-lg"></i>
@@ -26,7 +24,6 @@
             </div>
         </div>
 
-        <!-- Navigation -->
         <nav class="flex-1 overflow-y-auto py-6 px-4">
             <div class="mb-6">
                 <p class="text-xs font-semibold text-gray-400 mb-3 px-3 tracking-wider">MAIN MENU</p>
@@ -53,10 +50,8 @@
         </nav>
     </aside>
 
-    <!-- Main Content -->
     <main class="flex-1 flex flex-col h-full overflow-hidden">
         
-        <!-- Header -->
         <header class="bg-white border-b border-gray-200 px-8 py-6 flex justify-between items-center flex-shrink-0">
             <div>
                 <h2 class="text-2xl font-semibold text-gray-900">Student Profile</h2>
