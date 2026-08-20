@@ -21,8 +21,8 @@
                 <i class="fa-solid fa-graduation-cap text-lg"></i>
             </div>
             <div>
-                <h1 class="font-semibold text-gray-900 text-lg leading-tight">EduManage</h1>
-                <p class="text-sm text-gray-500 leading-tight">Student Portal</p>
+                <h1 class="font-semibold text-gray-900 text-lg leading-tight">LavaLust</h1>
+                <p class="text-sm text-gray-500 leading-tight">JhonasGwapo</p>
             </div>
         </div>
 
