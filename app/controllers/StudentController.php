@@ -15,7 +15,7 @@ class StudentController extends Controller
             'course' => 'BS Information Technology',
             'year' => '3rd Year',
             'section' => 'A',
-            'email' => 'jhonas@example.com'
+            'email' => 'cabanerojhoas@gmail.com'
         ];
 
         $this->call->view('student/index', ['student' => $student]);
@@ -25,15 +25,19 @@ class StudentController extends Controller
     {
         session_start();
 
-        $student = [
+        $data = [
             'student_id' => '2026-0001',
             'name' => 'Jhonas Cabanero',
             'course' => 'BS Information Technology',
             'year' => '3rd Year',
             'section' => 'A',
-            'email' => 'jhonas@example.com'
+            'email' => 'jhonas@example.com',
+            'address' => 'Calapan City, Oriental Mindoro',
+            'contact_number' => '09123456789',
+            'skills' => 'Programming, Web Development, Database Management',
+            'hobbies' => 'Coding, Gaming, Watching Movies'
         ];
 
-        $this->call->view('student/profile', ['student' => $student]);
+        $this->call->view('student/profile', $data);
     }
 }
