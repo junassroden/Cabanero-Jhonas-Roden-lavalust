@@ -13,9 +13,7 @@
 </head>
 <body class="bg-zinc-50 flex h-screen overflow-hidden text-zinc-800">
 
-    <!-- Sidebar -->
     <aside class="w-64 bg-white border-r border-zinc-200 flex flex-col h-full flex-shrink-0 z-10 relative shadow-[1px_0_10px_rgba(0,0,0,0.02)]">
-        <!-- Logo Area -->
         <div class="h-24 flex items-center px-8 border-b border-zinc-100">
             <div class="bg-black text-white rounded-none p-2.5 mr-4 flex items-center justify-center">
                 <i class="fa-solid fa-graduation-cap text-lg"></i>
@@ -26,7 +24,6 @@
             </div>
         </div>
 
-        <!-- Navigation -->
         <nav class="flex-1 overflow-y-auto py-8 px-4">
             <div class="mb-8">
                 <p class="text-[10px] font-bold text-zinc-400 mb-4 px-4 tracking-[0.2em] uppercase">Main Menu</p>
@@ -53,10 +50,8 @@
         </nav>
     </aside>
 
-    <!-- Main Content -->
     <main class="flex-1 flex flex-col h-full overflow-hidden bg-[#FAFAFA]">
         
-        <!-- Header -->
         <header class="bg-white px-10 py-8 flex justify-between items-end flex-shrink-0 border-b border-zinc-200">
             <div>
                 <h2 class="text-3xl font-bold text-zinc-900 tracking-tight">Student Management</h2>
@@ -67,7 +62,6 @@
             </button>
         </header>
 
-        <!-- Filters & Search -->
         <div class="px-10 py-5 flex items-center gap-4 flex-shrink-0 border-b border-zinc-100 bg-white">
             <div class="relative flex-1 max-w-xl">
                 <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 transform -translate-y-1/2 text-zinc-400 text-sm"></i>
@@ -96,7 +90,6 @@
             </div>
         </div>
 
-        <!-- Student Grid Area -->
         <div class="flex-1 overflow-y-auto p-10">
             <div class="mb-8 flex items-center justify-between">
                 <span class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Showing 1 of 1 students</span>
@@ -104,7 +97,6 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 
-                <!-- Premium Student Card -->
                 <div class="bg-white border border-zinc-200 p-7 hover:border-zinc-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300 flex flex-col h-full rounded-none group">
                     
                     <div class="flex justify-between items-start mb-6">
