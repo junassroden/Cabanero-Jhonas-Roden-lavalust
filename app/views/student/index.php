@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Information | Academic Portal</title>
+    <title>Student Profile - Academic Portal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #1e3a8a;
-            --light-blue: #3b82f6;
-            --accent-blue: #eff6ff;
-            --bg-color: #f8fafc;
+            --primary-blue: #003366; /* Classic solid school navy blue */
+            --accent-blue: #0055a5;  /* Solid royal blue */
+            --bg-color: #f4f6f9;
             --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
+            --text-main: #222222;
+            --text-muted: #666666;
+            --border-color: #d1d5db;
         }
 
         *, *::before, *::after {
@@ -31,171 +30,223 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
         }
 
-        .card {
+        /* Top Navbar */
+        .navbar {
             background-color: var(--card-bg);
-            width: 100%;
-            max-width: 550px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.08), 0 8px 10px -6px rgba(30, 58, 138, 0.08);
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-            position: relative;
+            border-bottom: 2px solid var(--primary-blue);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        /* School-themed top header band */
-        .card-header {
-            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .card-header h1 {
-            font-size: 1.5rem;
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
             font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.25rem;
+            font-size: 1.125rem;
+            color: var(--primary-blue);
+            text-decoration: none;
         }
 
-        .card-header p {
-            font-size: 0.875rem;
-            opacity: 0.85;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        .navbar-nav {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
         }
 
-        .card-body {
-            padding: 2rem;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.25rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .info-group {
-            background-color: var(--accent-blue);
-            padding: 1rem;
-            border-radius: 10px;
-            border: 1px solid #dbeafe;
-        }
-
-        .info-group.full-width {
-            grid-column: span 2;
-        }
-
-        .info-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
+        .navbar-nav a {
+            text-decoration: none;
             color: var(--text-muted);
-            letter-spacing: 0.05em;
-            margin-bottom: 0.3rem;
-            display: block;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
         }
 
-        .info-value {
-            font-size: 1rem;
+        .navbar-nav a:hover, .navbar-nav a.active {
+            color: var(--primary-blue);
             font-weight: 600;
+        }
+
+        .user-pill {
+            background-color: #e6f0fa;
+            color: var(--primary-blue);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: 1px solid #b8d0e8;
+        }
+
+        /* Main Page Layout */
+        .main-container {
+            max-width: 900px;
+            width: 100%;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+            flex: 1;
+        }
+
+        .page-header {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.75rem;
+        }
+
+        .page-header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
             color: var(--primary-blue);
         }
 
-        hr {
-            border: none;
-            height: 1px;
-            background-color: var(--border-color);
-            margin: 1.5rem 0;
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .nav-links a {
-            color: var(--light-blue);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.875rem;
-            padding: 0.5rem 1rem;
+        /* Content Card */
+        .content-card {
+            background-color: var(--card-bg);
             border-radius: 6px;
-            transition: all 0.2s ease;
-            background-color: var(--accent-blue);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
         }
 
-        .nav-links a:hover {
-            background-color: var(--light-blue);
+        .card-top-bar {
+            background-color: var(--primary-blue);
             color: white;
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        @media (max-width: 480px) {
-            .info-grid {
+        .grid-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+
+        .detail-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            border-bottom: 1px solid #edf2f7;
+            padding-bottom: 0.75rem;
+        }
+
+        .detail-group.full {
+            grid-column: span 2;
+        }
+
+        .detail-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        .detail-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            .grid-details {
                 grid-template-columns: 1fr;
             }
-            .info-group.full-width {
+            .detail-group.full {
                 grid-column: span 1;
+            }
+            .navbar {
+                padding: 0 1rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div class="card-header">
-            <h1>Student Portal</h1>
-            <p>Official Information Record</p>
+    <!-- Website Navbar -->
+    <header class="navbar">
+        <a href="<?= site_url('student'); ?>" class="navbar-brand">
+            🏫 Student Portal
+        </a>
+        <nav class="navbar-nav">
+            <a href="<?= site_url('student'); ?>">Home</a>
+            <a href="<?= site_url('student/profile'); ?>" class="active">Student Profile</a>
+            <div class="user-pill"><?= $student['name']; ?></div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="page-header">
+            <h1>Student Profile</h1>
         </div>
 
-        <div class="card-body">
-            <div class="info-grid">
-                <div class="info-group">
-                    <span class="info-label">Student ID</span>
-                    <span class="info-value"><?= $student['student_id']; ?></span>
-                </div>
-
-                <div class="info-group">
-                    <span class="info-label">Year Level</span>
-                    <span class="info-value"><?= $student['year']; ?></span>
-                </div>
-
-                <div class="info-group full-width">
-                    <span class="info-label">Full Name</span>
-                    <span class="info-value"><?= $student['name']; ?></span>
-                </div>
-
-                <div class="info-group">
-                    <span class="info-label">Course</span>
-                    <span class="info-value"><?= $student['course']; ?></span>
-                </div>
-
-                <div class="info-group">
-                    <span class="info-label">Section</span>
-                    <span class="info-value"><?= $student['section']; ?></span>
-                </div>
-
-                <div class="info-group full-width">
-                    <span class="info-label">Email Address</span>
-                    <span class="info-value"><?= $student['email']; ?></span>
-                </div>
+        <div class="content-card">
+            <div class="card-top-bar">
+                <span>Official Record Information</span>
+                <span style="font-size: 0.85rem;">Enrolled</span>
             </div>
 
-            <hr>
+            <div class="grid-details">
+                <div class="detail-group">
+                    <span class="detail-label">Student ID</span>
+                    <span class="detail-value"><?= $student['student_id']; ?></span>
+                </div>
 
-            <div class="nav-links">
-                <a href="<?= site_url('student'); ?>">Home</a>
-                <a href="<?= site_url('student/profile'); ?>">Student Profile</a>
+                <div class="detail-group">
+                    <span class="detail-label">Year</span>
+                    <span class="detail-value"><?= $student['year']; ?></span>
+                </div>
+
+                <div class="detail-group full">
+                    <span class="detail-label">Name</span>
+                    <span class="detail-value"><?= $student['name']; ?></span>
+                </div>
+
+                <div class="detail-group">
+                    <span class="detail-label">Course</span>
+                    <span class="detail-value"><?= $student['course']; ?></span>
+                </div>
+
+                <div class="detail-group">
+                    <span class="detail-label">Section</span>
+                    <span class="detail-value"><?= $student['section']; ?></span>
+                </div>
+
+                <div class="detail-group full">
+                    <span class="detail-label">Email</span>
+                    <span class="detail-value"><?= $student['email']; ?></span>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
+
+    <!-- Website Footer -->
+    <footer class="footer">
+        <p>&copy; <?= date('Y'); ?> Academic Institution. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
