@@ -19,8 +19,8 @@
                 <i class="fa-solid fa-graduation-cap text-lg"></i>
             </div>
             <div>
-                <h1 class="font-bold text-zinc-900 text-lg tracking-tight leading-tight">EduManage</h1>
-                <p class="text-xs text-zinc-400 font-medium tracking-wide uppercase mt-0.5">Academic</p>
+                <h1 class="font-bold text-zinc-900 text-lg tracking-tight leading-tight">LavaLust</h1>
+                <p class="text-xs text-zinc-400 font-medium tracking-wide uppercase mt-0.5">JhonasGwapo</p>
             </div>
         </div>
 
