@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Profile | Academic Portal</title>
+    <title>Student Home | Academic Portal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -48,7 +48,7 @@
         }
 
         .card-header {
-            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            background-color: var(--primary-blue);
             color: white;
             padding: 2rem;
             text-align: center;
@@ -150,8 +150,8 @@
 
     <div class="card">
         <div class="card-header">
-            <h1>Student Profile</h1>
-            <p>Account Overview</p>
+            <h1>Student Information</h1>
+            <p>Academic Portal</p>
         </div>
 
         <div class="card-body">
@@ -162,7 +162,7 @@
                 </div>
 
                 <div class="info-group">
-                    <span class="info-label">Year</span>
+                    <span class="info-label">Year Level</span>
                     <span class="info-value"><?= $student['year']; ?></span>
                 </div>
 
@@ -191,6 +191,7 @@
 
             <div class="nav-links">
                 <a href="<?= site_url('student'); ?>">Home</a>
+                <a href="<?= site_url('student/profile'); ?>">Student Profile</a>
             </div>
         </div>
     </div>
