@@ -30,4 +30,3 @@ $router->group(['middleware' => 'AuthMiddleware'], function ($router) {
     $router->any('/products/edit/{id}', 'ProductController::edit');
     $router->get('/products/delete/{id}', 'ProductController::delete');
 });
-
