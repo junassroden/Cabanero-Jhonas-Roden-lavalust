@@ -92,7 +92,7 @@ $autoload['helpers'] = array('debug');
 |
 |	$autoload['models'] = array('model1_model', 'model2_model')
 */
-$autoload['models'] = array('UserModel');
+$autoload['models'] = array('ProductModel');
 
 /*
 | -------------------------------------------------------------------

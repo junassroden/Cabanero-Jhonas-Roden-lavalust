@@ -1,0 +1,29 @@
+<?php
+defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
+
+/**
+ * Model: ProductModel
+ * 
+ * Automatically generated via CLI.
+ */
+class ProductModel extends Model {
+    protected $table = '';
+    protected $primary_key = 'id';
+    protected $fillable = [];
+    protected $guarded = ['id'];
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    public function read(){
+        return $this->db->table('products')->get_all();
+    }
+
+    public function create(){
+        $data = array(
+
+        );
+    }
+}
