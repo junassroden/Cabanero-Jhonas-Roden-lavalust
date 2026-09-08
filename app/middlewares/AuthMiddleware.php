@@ -8,7 +8,7 @@ class AuthMiddleware
         $session = load_class('session', 'libraries');
 
         if (!$session->has_userdata('user_id')) {
-            header('Location: ' . site_url('/login'));
+            header('Location: ' . site_url('/'));
             exit;
         }
 

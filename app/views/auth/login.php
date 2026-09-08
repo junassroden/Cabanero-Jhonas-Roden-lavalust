@@ -10,7 +10,7 @@
     <?php if (!empty($error)): ?>
         <p><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></p>
     <?php endif; ?>
-    <form action="<?= site_url('/login'); ?>" method="post">
+    <form action="<?= site_url('/'); ?>" method="post">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
 
