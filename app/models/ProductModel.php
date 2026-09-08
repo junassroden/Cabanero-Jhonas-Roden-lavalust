@@ -21,9 +21,33 @@ class ProductModel extends Model {
         return $this->db->table('products')->get_all();
     }
 
-    public function create(){
-        $data = array(
+    public function find($id){
+        return $this->db->table('products')->where('id', $id)->get();
+    }
 
+    public function create($product_name, $description, $price, $quantity){
+        $data = array(
+            'product_name' => $product_name,
+            'description' => $description,
+            'price' => $price,
+            'quantity' => $quantity
         );
+
+        $this->db->table('products')->insert($data);
+    }
+
+    public function update($id, $product_name, $description, $price, $quantity){
+        $data = array(
+            'product_name' => $product_name,
+            'description' => $description,
+            'price' => $price,
+            'quantity' => $quantity
+        );
+
+        return $this->db->table('products')->where('id', $id)->update($data);
+    }
+
+    public function delete($id){
+        return $this->db->table('products')->where('id', $id)->delete();
     }
 }

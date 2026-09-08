@@ -8,7 +8,8 @@
 <body>
     <div class = "container">
         <h2>Add Product</h2>
-        <form action="<?php echo base_url('product/create'); ?>" method="post">
+        <p><a href="<?= site_url('/product/display'); ?>">Back to products</a></p>
+        <form action="<?= site_url('/product/create'); ?>" method="post">
             <div class="form-group">
                 <label for="product_name">Product Name:</label>
                 <input type="text" class="form-control" id="product_name" name="product_name" required>
