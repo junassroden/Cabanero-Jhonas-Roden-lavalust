@@ -16,7 +16,7 @@ $router->get('/', 'Welcome::index');
 
 */
 
-$router->any('/login', 'AuthController::login');
+$router->any('/', 'AuthController::login');
 $router->get('/logout', 'AuthController::logout');
 
 $router->group(['middleware' => 'AuthMiddleware'], function ($router) {
