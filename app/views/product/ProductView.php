@@ -10,202 +10,411 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="min-h-screen bg-gray-50 text-gray-900">
+<body class="min-h-screen bg-slate-50 text-slate-900">
 
-    <!-- Notification -->
+    <!-- ============================= -->
+    <!-- SUCCESS NOTIFICATION -->
+    <!-- ============================= -->
     <?php if (!empty($notification)): ?>
+
         <div
             id="notification"
             role="status"
-            class="fixed top-5 right-5 z-50 flex items-start gap-4
-                   w-full max-w-sm rounded-lg border border-green-200
+            class="fixed right-5 top-5 z-50 flex w-full max-w-sm
+                   items-start gap-4 rounded-xl border border-emerald-200
                    bg-white px-5 py-4 shadow-lg"
         >
+
+            <!-- Success Icon -->
+            <div
+                class="flex h-9 w-9 shrink-0 items-center justify-center
+                       rounded-full bg-emerald-100 text-emerald-600"
+            >
+                ✓
+            </div>
+
             <div class="flex-1">
-                <p class="text-sm font-medium text-gray-900">
+
+                <p class="text-sm font-semibold text-slate-900">
                     Success
                 </p>
 
-                <p class="mt-1 text-sm text-gray-500">
+                <p class="mt-1 text-sm text-slate-500">
                     <?= htmlspecialchars($notification, ENT_QUOTES, 'UTF-8'); ?>
                 </p>
+
             </div>
 
             <button
                 type="button"
                 onclick="document.getElementById('notification').remove();"
                 aria-label="Close notification"
-                class="text-xl leading-none text-gray-400 transition hover:text-gray-700"
+                class="text-xl leading-none text-slate-400
+                       transition hover:text-slate-700"
             >
                 &times;
             </button>
+
         </div>
+
     <?php endif; ?>
 
 
-    <!-- Main Container -->
+    <!-- ============================= -->
+    <!-- MAIN CONTAINER -->
+    <!-- ============================= -->
     <div class="mx-auto max-w-7xl px-6 py-10">
 
-        <!-- Header -->
-        <div class="mb-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+
+        <!-- ============================= -->
+        <!-- HEADER -->
+        <!-- ============================= -->
+        <div
+            class="mb-8 flex flex-col gap-5
+                   sm:flex-row sm:items-center sm:justify-between"
+        >
 
             <div>
-                <p class="text-sm font-medium text-gray-500">
-                    Product Management
-                </p>
 
-                <h1 class="mt-1 text-2xl font-semibold tracking-tight text-gray-900">
+                <!-- Small Label -->
+                <div class="mb-2 flex items-center gap-2">
+
+                    <span
+                        class="h-2 w-2 rounded-full bg-blue-600"
+                    ></span>
+
+                    <p class="text-sm font-semibold text-blue-600">
+                        Product Management
+                    </p>
+
+                </div>
+
+
+                <!-- Page Title -->
+                <h1
+                    class="text-3xl font-bold tracking-tight text-slate-900"
+                >
                     <?php echo $name; ?>
                 </h1>
 
-                <p class="mt-1 text-sm text-gray-500">
+
+                <p class="mt-2 text-sm text-slate-500">
                     View and manage available products.
                 </p>
+
             </div>
 
 
-            <!-- Actions -->
+            <!-- ============================= -->
+            <!-- ACTION BUTTONS -->
+            <!-- ============================= -->
             <div class="flex items-center gap-3">
 
                 <?php if ($user_role === 'admin'): ?>
+
                     <a
                         href="<?= site_url('/product/create'); ?>"
-                        class="inline-flex items-center rounded-lg
-                               bg-gray-900 px-4 py-2.5
-                               text-sm font-medium text-white
-                               transition hover:bg-gray-800"
+                        class="inline-flex items-center gap-2 rounded-lg
+                               bg-blue-600 px-4 py-2.5
+                               text-sm font-semibold text-white
+                               shadow-sm transition
+                               hover:bg-blue-700
+                               hover:shadow-md"
                     >
-                        + Add Product
+
+                        <span class="text-lg leading-none">
+                            +
+                        </span>
+
+                        Add Product
+
                     </a>
+
                 <?php endif; ?>
+
 
                 <a
                     href="<?= site_url('/logout'); ?>"
                     class="inline-flex items-center rounded-lg
-                           border border-gray-300 bg-white
-                           px-4 py-2.5 text-sm font-medium text-gray-700
-                           transition hover:bg-gray-50"
+                           border border-slate-300 bg-white
+                           px-4 py-2.5 text-sm font-medium
+                           text-slate-700 shadow-sm transition
+                           hover:border-red-200 hover:bg-red-50
+                           hover:text-red-600"
                 >
                     Logout
                 </a>
 
             </div>
+
         </div>
 
 
-        <!-- Product Table Card -->
-        <div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
+        <!-- ============================= -->
+        <!-- PRODUCT TABLE CARD -->
+        <!-- ============================= -->
+        <div
+            class="overflow-hidden rounded-xl border
+                   border-slate-200 bg-white shadow-sm"
+        >
 
-            <!-- Table Header -->
-            <div class="border-b border-gray-200 px-6 py-4">
-                <h2 class="text-sm font-semibold text-gray-900">
-                    Products
-                </h2>
 
-                <p class="mt-1 text-xs text-gray-500">
-                    List of all registered products.
-                </p>
+            <!-- ============================= -->
+            <!-- TABLE HEADER -->
+            <!-- ============================= -->
+            <div
+                class="flex flex-col gap-2 border-b
+                       border-slate-200 bg-slate-50 px-6 py-5
+                       sm:flex-row sm:items-center
+                       sm:justify-between"
+            >
+
+                <div>
+
+                    <div class="flex items-center gap-2">
+
+                        <!-- Purple Accent -->
+                        <div
+                            class="flex h-8 w-8 items-center justify-center
+                                   rounded-lg bg-purple-100 text-purple-600"
+                        >
+                            #
+                        </div>
+
+                        <h2 class="text-base font-semibold text-slate-900">
+                            Products
+                        </h2>
+
+                    </div>
+
+                    <p class="mt-1 ml-10 text-xs text-slate-500">
+                        List of all registered products.
+                    </p>
+
+                </div>
+
+
+                <!-- Admin Badge -->
+                <?php if ($user_role === 'admin'): ?>
+
+                    <span
+                        class="w-fit rounded-full bg-purple-100
+                               px-3 py-1 text-xs font-semibold
+                               text-purple-700"
+                    >
+                        Administrator
+                    </span>
+
+                <?php endif; ?>
+
             </div>
 
 
-            <!-- Table -->
+            <!-- ============================= -->
+            <!-- TABLE -->
+            <!-- ============================= -->
             <div class="overflow-x-auto">
 
                 <table class="w-full text-left text-sm">
 
-                    <thead class="border-b border-gray-200 bg-gray-50">
+                    <!-- TABLE HEAD -->
+                    <thead class="border-b border-slate-200 bg-white">
+
                         <tr>
-                            <th class="px-6 py-4 font-medium text-gray-500">
+
+                            <th
+                                class="px-6 py-4 text-xs font-semibold
+                                       uppercase tracking-wide
+                                       text-slate-500"
+                            >
                                 ID
                             </th>
 
-                            <th class="px-6 py-4 font-medium text-gray-500">
-                                Product Name
+                            <th
+                                class="px-6 py-4 text-xs font-semibold
+                                       uppercase tracking-wide
+                                       text-slate-500"
+                            >
+                                Product
                             </th>
 
-                            <th class="px-6 py-4 font-medium text-gray-500">
+                            <th
+                                class="px-6 py-4 text-xs font-semibold
+                                       uppercase tracking-wide
+                                       text-slate-500"
+                            >
                                 Description
                             </th>
 
-                            <th class="px-6 py-4 font-medium text-gray-500">
+                            <th
+                                class="px-6 py-4 text-xs font-semibold
+                                       uppercase tracking-wide
+                                       text-slate-500"
+                            >
                                 Price
                             </th>
 
-                            <th class="px-6 py-4 font-medium text-gray-500">
-                                Created At
+                            <th
+                                class="px-6 py-4 text-xs font-semibold
+                                       uppercase tracking-wide
+                                       text-slate-500"
+                            >
+                                Created
                             </th>
 
                             <?php if ($user_role === 'admin'): ?>
-                                <th class="px-6 py-4 font-medium text-gray-500">
+
+                                <th
+                                    class="px-6 py-4 text-xs font-semibold
+                                           uppercase tracking-wide
+                                           text-slate-500"
+                                >
                                     Actions
                                 </th>
+
                             <?php endif; ?>
 
                         </tr>
+
                     </thead>
 
 
-                    <tbody class="divide-y divide-gray-100">
+                    <!-- TABLE BODY -->
+                    <tbody class="divide-y divide-slate-100">
 
                         <?php foreach ($products as $product): ?>
 
-                            <tr class="transition hover:bg-gray-50">
+                            <tr
+                                class="group transition
+                                       hover:bg-blue-50/40"
+                            >
 
+                                <!-- ============================= -->
                                 <!-- ID -->
-                                <td class="whitespace-nowrap px-6 py-4 text-gray-500">
-                                    <?php echo $product['id']; ?>
-                                </td>
+                                <!-- ============================= -->
+                                <td class="whitespace-nowrap px-6 py-5">
 
-
-                                <!-- Product Name -->
-                                <td class="whitespace-nowrap px-6 py-4">
-                                    <span class="font-medium text-gray-900">
-                                        <?php echo $product['product_name']; ?>
+                                    <span
+                                        class="inline-flex rounded-md
+                                               bg-slate-100 px-2.5 py-1
+                                               text-xs font-semibold
+                                               text-slate-600
+                                               group-hover:bg-blue-100
+                                               group-hover:text-blue-700"
+                                    >
+                                        #<?php echo $product['id']; ?>
                                     </span>
+
                                 </td>
 
 
-                                <!-- Description -->
-                                <td class="max-w-xs px-6 py-4">
-                                    <p class="truncate text-gray-500">
+                                <!-- ============================= -->
+                                <!-- PRODUCT NAME -->
+                                <!-- ============================= -->
+                                <td class="whitespace-nowrap px-6 py-5">
+
+                                    <div class="flex items-center gap-3">
+
+                                        <!-- Product Icon -->
+                                        <div
+                                            class="flex h-9 w-9 items-center
+                                                   justify-center rounded-lg
+                                                   bg-blue-100 text-blue-600"
+                                        >
+                                            P
+                                        </div>
+
+                                        <span
+                                            class="font-semibold text-slate-900"
+                                        >
+                                            <?php echo $product['product_name']; ?>
+                                        </span>
+
+                                    </div>
+
+                                </td>
+
+
+                                <!-- ============================= -->
+                                <!-- DESCRIPTION -->
+                                <!-- ============================= -->
+                                <td class="max-w-xs px-6 py-5">
+
+                                    <p
+                                        class="truncate text-slate-500"
+                                    >
                                         <?php echo $product['description']; ?>
                                     </p>
+
                                 </td>
 
 
-                                <!-- Price -->
-                                <td class="whitespace-nowrap px-6 py-4">
-                                    <span class="font-medium text-gray-900">
+                                <!-- ============================= -->
+                                <!-- PRICE -->
+                                <!-- ============================= -->
+                                <td class="whitespace-nowrap px-6 py-5">
+
+                                    <span
+                                        class="rounded-md bg-orange-50
+                                               px-3 py-1.5 text-sm
+                                               font-bold text-orange-600"
+                                    >
                                         ₱<?php echo $product['price']; ?>
                                     </span>
+
                                 </td>
 
 
-                                <!-- Created At -->
-                                <td class="whitespace-nowrap px-6 py-4 text-gray-500">
-                                    <?php echo $product['created_at']; ?>
+                                <!-- ============================= -->
+                                <!-- CREATED AT -->
+                                <!-- ============================= -->
+                                <td class="whitespace-nowrap px-6 py-5">
+
+                                    <span
+                                        class="inline-flex rounded-md
+                                               bg-slate-100 px-2.5 py-1
+                                               text-xs font-medium
+                                               text-slate-600"
+                                    >
+                                        <?php echo $product['created_at']; ?>
+                                    </span>
+
                                 </td>
 
 
-                                <!-- Actions -->
+                                <!-- ============================= -->
+                                <!-- ACTIONS -->
+                                <!-- ============================= -->
                                 <?php if ($user_role === 'admin'): ?>
-                                    <td class="whitespace-nowrap px-6 py-4">
 
-                                        <div class="flex items-center gap-3">
+                                    <td class="whitespace-nowrap px-6 py-5">
 
+                                        <div class="flex items-center gap-2">
+
+                                            <!-- Edit -->
                                             <a
                                                 href="<?= site_url('/product/edit/' . $product['id']); ?>"
-                                                class="text-sm font-medium text-gray-700
-                                                       transition hover:text-gray-900"
+                                                class="rounded-md bg-blue-50
+                                                       px-3 py-1.5 text-sm
+                                                       font-semibold text-blue-600
+                                                       transition
+                                                       hover:bg-blue-100
+                                                       hover:text-blue-700"
                                             >
                                                 Edit
                                             </a>
 
+
+                                            <!-- Delete -->
                                             <a
                                                 href="<?= site_url('/product/delete/' . $product['id']); ?>"
                                                 onclick="return confirm('Delete this product?');"
-                                                class="text-sm font-medium text-red-600
-                                                       transition hover:text-red-700"
+                                                class="rounded-md bg-red-50
+                                                       px-3 py-1.5 text-sm
+                                                       font-semibold text-red-600
+                                                       transition
+                                                       hover:bg-red-100
+                                                       hover:text-red-700"
                                             >
                                                 Delete
                                             </a>
@@ -213,6 +422,7 @@
                                         </div>
 
                                     </td>
+
                                 <?php endif; ?>
 
                             </tr>
@@ -228,25 +438,45 @@
         </div>
 
 
-        <!-- Footer -->
-        <div class="mt-5 text-xs text-gray-400">
-            Product Management System
+        <!-- ============================= -->
+        <!-- FOOTER -->
+        <!-- ============================= -->
+        <div class="mt-5 flex items-center justify-between">
+
+            <p class="text-xs text-slate-400">
+                Product Management System
+            </p>
+
+            <span
+                class="text-xs font-medium text-slate-400"
+            >
+                <?php echo count($products); ?> Products
+            </span>
+
         </div>
 
     </div>
 
 
-    <!-- Auto-hide Notification -->
+    <!-- ============================= -->
+    <!-- AUTO-HIDE NOTIFICATION -->
+    <!-- ============================= -->
+
     <?php if (!empty($notification)): ?>
+
         <script>
             window.setTimeout(function () {
-                var notification = document.getElementById('notification');
+
+                var notification =
+                    document.getElementById('notification');
 
                 if (notification) {
                     notification.remove();
                 }
+
             }, 4000);
         </script>
+
     <?php endif; ?>
 
 </body>
