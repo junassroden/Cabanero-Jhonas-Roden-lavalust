@@ -20,9 +20,6 @@
             min-height: 100vh;
         }
 
-        /* =========================
-           TOP NAVIGATION
-        ========================== */
         .navbar {
             height: 70px;
             background: #ffffff;
@@ -87,9 +84,6 @@
             border-color: #9ca3af;
         }
 
-        /* =========================
-           MAIN CONTENT
-        ========================== */
         .container {
             width: min(1200px, 90%);
             margin: 0 auto;
@@ -146,9 +140,6 @@
             transform: translateY(-1px);
         }
 
-        /* =========================
-           TABLE WRAPPER
-        ========================== */
         .table-card {
             background: #ffffff;
             border: 1px solid #e5e7eb;
@@ -199,9 +190,6 @@
             min-width: 850px;
         }
 
-        /* =========================
-           TABLE HEADER
-        ========================== */
         thead {
             background: #111827;
         }
@@ -264,9 +252,6 @@
             font-size: 13px;
         }
 
-        /* =========================
-           ACTION BUTTONS
-        ========================== */
         .actions {
             display: flex;
             align-items: center;
@@ -306,9 +291,6 @@
             background: #fee2e2;
         }
 
-        /* =========================
-           EMPTY STATE
-        ========================== */
         .empty-state {
             text-align: center;
             padding: 60px 20px;
@@ -338,9 +320,6 @@
             font-size: 13px;
         }
 
-        /* =========================
-           NOTIFICATION
-        ========================== */
         .notification {
             position: fixed;
             top: 88px;
@@ -382,9 +361,6 @@
             }
         }
 
-        /* =========================
-           FOOTER
-        ========================== */
         .footer {
             text-align: center;
             color: #9ca3af;
@@ -392,9 +368,6 @@
             padding-top: 25px;
         }
 
-        /* =========================
-           RESPONSIVE
-        ========================== */
         @media (max-width: 768px) {
             .navbar {
                 padding: 0 5%;
@@ -440,9 +413,6 @@
 
 <body>
 
-    <!-- =========================
-         NAVBAR
-    ========================== -->
     <nav class="navbar">
 
         <div class="brand">
@@ -462,10 +432,6 @@
 
     </nav>
 
-
-    <!-- =========================
-         NOTIFICATION
-    ========================== -->
     <?php if (!empty($notification)): ?>
 
         <div class="notification" role="status" id="notification">
@@ -483,10 +449,6 @@
 
     <?php endif; ?>
 
-
-    <!-- =========================
-         MAIN CONTENT
-    ========================== -->
     <main class="container">
 
         <div class="page-header">
@@ -514,10 +476,6 @@
 
         </div>
 
-
-        <!-- =========================
-             TABLE CARD
-        ========================== -->
         <section class="table-card">
 
             <div class="table-card-header">
@@ -650,10 +608,6 @@
 
     </main>
 
-
-    <!-- =========================
-         AUTO-HIDE NOTIFICATION
-    ========================== -->
     <?php if (!empty($notification)): ?>
 
         <script>
