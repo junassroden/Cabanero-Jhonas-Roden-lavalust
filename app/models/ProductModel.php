@@ -20,11 +20,6 @@ class ProductModel extends Model {
     public function read(){
         return $this->db->table('products')->get_all();
     }
-
-    public function find($id){
-        return $this->db->table('products')->where('id', $id)->get();
-    }
-
     public function create($product_name, $description, $price, $quantity){
         $data = array(
             'product_name' => $product_name,
@@ -32,7 +27,6 @@ class ProductModel extends Model {
             'price' => $price,
             'quantity' => $quantity
         );
-
         $this->db->table('products')->insert($data);
     }
 
