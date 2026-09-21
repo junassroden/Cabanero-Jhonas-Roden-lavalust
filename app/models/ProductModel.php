@@ -7,9 +7,9 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
  * Automatically generated via CLI.
  */
 class ProductModel extends Model {
-    protected $table = '';
+    protected $table = 'products';
     protected $primary_key = 'id';
-    protected $fillable = [];
+    protected $fillable = ['product_name', 'description', 'price', 'quantity'];
     protected $guarded = ['id'];
 
     public function __construct()
@@ -38,7 +38,7 @@ class ProductModel extends Model {
             'quantity' => $quantity
         );
 
-        return $this->db->table('products')->where('id', $id)->update($data);
+        return $this->db->table($this->table)->where(['id' => $id])->update($data);
     }
 
     public function delete($id){
