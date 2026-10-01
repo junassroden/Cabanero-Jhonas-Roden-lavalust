@@ -15,11 +15,11 @@ $router->get('/users', 'UserController::showUsers');
 $router->get('/', 'Welcome::index');
 
 */
-
 $router->any('/', 'AuthController::login');
 $router->get('/logout', 'AuthController::logout');
 
 $router->group(['middleware' => 'AuthMiddleware'], function ($router) {
+
     $router->get('/product/display', 'ProductController::read');
     $router->any('/product/create', 'ProductController::create');
     $router->any('/product/edit/{id}', 'ProductController::edit');
@@ -30,3 +30,19 @@ $router->group(['middleware' => 'AuthMiddleware'], function ($router) {
     $router->any('/products/edit/{id}', 'ProductController::edit');
     $router->get('/products/delete/{id}', 'ProductController::delete');
 });
+
+$router->post('/api/login', 'ProductController::api_login');
+$router->post('/api/logout', 'ProductController::api_logout');
+$router->post('/api/refresh', 'ProductController::api_refresh');
+
+$router->get('/api/products', 'ProductController::api_index');
+$router->post('/api/products', 'ProductController::api_store');
+$router->put('/api/products/{id}', 'ProductController::api_update');
+$router->delete('/api/products/{id}', 'ProductController::api_delete');
+
+$router->get('create-migration/{migration_class}', 'MigrationController::create_migration');
+$router->get('migrate', 'MigrationController::migrate');
+$router->get('rollback', 'MigrationController::rollback');
+$router->get('rollback-all', 'MigrationController::rollback_all');
+$router->get('refresh', 'MigrationController::refresh');
+$router->get('status', 'MigrationController::status');
