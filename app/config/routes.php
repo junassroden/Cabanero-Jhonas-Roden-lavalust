@@ -32,13 +32,20 @@ $router->group(['middleware' => 'AuthMiddleware'], function ($router) {
 });
 
 $router->post('/api/login', 'ProductController::api_login');
+$router->options('/api/login', 'ProductController::api_login');
 $router->post('/api/logout', 'ProductController::api_logout');
+$router->options('/api/logout', 'ProductController::api_logout');
 $router->post('/api/refresh', 'ProductController::api_refresh');
+$router->options('/api/refresh', 'ProductController::api_refresh');
 
 $router->get('/api/products', 'ProductController::api_index');
+$router->options('/api/products', 'ProductController::api_index');
 $router->post('/api/products', 'ProductController::api_store');
+$router->options('/api/products', 'ProductController::api_store');
 $router->put('/api/products/{id}', 'ProductController::api_update');
+$router->options('/api/products/{id}', 'ProductController::api_update');
 $router->delete('/api/products/{id}', 'ProductController::api_delete');
+$router->options('/api/products/{id}', 'ProductController::api_delete');
 
 $router->get('create-migration/{migration_class}', 'MigrationController::create_migration');
 $router->get('migrate', 'MigrationController::migrate');
