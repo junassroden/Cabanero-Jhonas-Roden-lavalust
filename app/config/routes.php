@@ -31,25 +31,14 @@ $router->group(['middleware' => 'AuthMiddleware'], function ($router) {
     $router->get('/products/delete/{id}', 'ProductController::delete');
 });
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-*/
+$router->post('/api/login', 'ProductController::api_login');
+$router->post('/api/logout', 'ProductController::api_logout');
+$router->post('/api/refresh', 'ProductController::api_refresh');
 
-$router->any('/api/login', 'ProductController::api_login');
-$router->any('/api/logout', 'ProductController::api_logout');
-$router->any('/api/refresh', 'ProductController::api_refresh');
-
-$router->any('/api/products', 'ProductController::api_index');
-$router->any('/api/products/create', 'ProductController::api_store');
-$router->any('/api/products/{id}', 'ProductController::api_update');
-
-/*
-|--------------------------------------------------------------------------
-| Migration Routes
-|--------------------------------------------------------------------------
-*/
+$router->get('/api/products', 'ProductController::api_index');
+$router->post('/api/products', 'ProductController::api_store');
+$router->put('/api/products/{id}', 'ProductController::api_update');
+$router->delete('/api/products/{id}', 'ProductController::api_delete');
 
 $router->get('create-migration/{migration_class}', 'MigrationController::create_migration');
 $router->get('migrate', 'MigrationController::migrate');
